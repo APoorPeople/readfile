@@ -1,0 +1,29 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+  int a[3];
+  int b[8][5];
+  int i, j;
+  char c;
+  fstream file("data.txt");
+  if(!file) 
+  {
+ cout << "data error!";
+ return 0;
+  }
+  file >> a[0] >> a[1] >> a[2];
+  for(i=0; i<8; ++i)
+  {
+    for(j=0;j<5;j++)
+      file >> b[i][j];
+    file >> c;
+    if(c!=';') 
+    {cout << "data error!";break;}
+  }
+  file.close();
+  return 0;
+}
